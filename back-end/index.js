@@ -29,7 +29,7 @@ const plantList = [
   {
     name: "Cindy",
     description: "Elle habille l'escalier par ses jolies feuilles tombantes",
-    image: "../assets/cindy.jpg",
+    image: "/assets/cindy.jpg",
     needwater: "1 fois par semaine",
     moreinfo: "https://plantespourtous.co/collections/fiches-dentretien/products/hoya-carnosa-tricolor?_pos=4&_fid=81f0082b2&_ss=c"
   },

@@ -1,38 +1,38 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import NavBar from './components/NavBar';
 import axios from 'axios';
 
 function App() {
   const [plants, setPlants] = useState([]);
 
   useEffect(() => {
-    // Utilisez une requête HTTP pour obtenir les données du serveur Express
-    async function fetchPlants() {
+    async function getPlants() {
       try {
         const response = await axios.get('http://localhost:5000/plants');
         setPlants(response.data);
       } catch (error) {
-        console.error('Erreur lors de la récupération des données :', error);
+        console.error("Les donnés n'ont pas été trouvé: ", error);
       }
     }
 
-    fetchPlants();
+    getPlants();
   }, []);
 
   return (
     <div>
-      <h1>Liste des Plantes</h1>
-      <ul>
+      <div><NavBar /></div>
+      <div className="card">
         {plants.map((plant, index) => (
-          <li key={index}>
-            <h2>{plant.name}</h2>
-            <p>{plant.description}</p>
-            <img src={plant.image} alt={`Photo de ${plant.name}`} />
-            <p>Besoin d'eau : {plant.needwater}</p>
-            <a href={plant.moreinfo}>Plus d'informations</a>
-          </li>
+          <div className="cardplant" key={index}>
+            <h2 className="title">{plant.name}</h2>
+            <p className="description">{plant.description}</p>
+            <img className="image" src={plant.image} alt={`Photo de ${plant.name}`} />
+            <p className="water">Besoin d'eau : {plant.needwater}</p>
+            <a className="link" href={plant.moreinfo} target="_blank">Plus d'informations</a>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

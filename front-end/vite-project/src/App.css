@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Faire le CSS de la NavBar video + burger */
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.cardplant {
+  width: 400px;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: peachpuff;
+}
